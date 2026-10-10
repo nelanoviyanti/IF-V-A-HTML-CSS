@@ -1,9 +1,715 @@
-<html>
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Learning Project</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-<head>
-</head>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #4a2c3a;
+        background: linear-gradient(135deg, #ffe0ec 0%, #f7b2cd 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
 
-<body>
-</body>
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
 
+      header {
+        text-align: center;
+        padding: 10px 0 25px;
+        margin-bottom: 10px;
+      }
+      header h1 {
+        font-size: 2rem;
+        color: #5c2a3e;
+      }
+      header p {
+        color: #9c6b7e;
+        margin-top: 5px;
+      }
+
+      section {
+        background: #fff;
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 20px;
+        border-left: 5px solid #f06595;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #d6336c;
+        font-size: 1.5rem;
+        padding-bottom: 8px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #f06595;
+      }
+      h3 {
+        color: #5c2a3e;
+        margin: 18px 0 10px;
+      }
+      h4 {
+        color: #5c2a3e;
+        margin: 15px 0 8px;
+      }
+      p {
+        margin-bottom: 12px;
+      }
+      ul,
+      ol {
+        margin: 0 0 12px 25px;
+      }
+      li {
+        margin-bottom: 4px;
+      }
+      a {
+        color: #d6336c;
+      }
+      hr {
+        border: none;
+        border-top: 1px solid #ffd6e7;
+        margin: 20px 0;
+      }
+
+      /* Kotak highlight (gradient) */
+      .highlight {
+        background: linear-gradient(135deg, #fff0f6 0%, #e5dbff 100%);
+        border-left: 4px solid #d6336c;
+        border-radius: 8px;
+        padding: 18px 20px;
+        margin: 15px 0;
+      }
+      .highlight h3 {
+        margin-top: 0;
+      }
+      .highlight ul {
+        margin-bottom: 0;
+      }
+
+      /* Blok kode */
+      .code-block {
+        position: relative;
+        background: #3b2431;
+        color: #ffeaf1;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 15px 0;
+        overflow-x: auto;
+      }
+      .code-block::after {
+        content: "HTML";
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: #e64980;
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: bold;
+        padding: 2px 8px;
+        border-radius: 4px;
+      }
+      .code-block.plain::after {
+        display: none;
+      }
+      .code-block pre {
+        font-family: "Courier New", Consolas, monospace;
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+      code.inline {
+        background: #ffe3ec;
+        color: #c2255c;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: "Courier New", Consolas, monospace;
+        font-size: 0.9em;
+      }
+
+      /* Tabel */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+      }
+      th {
+        background: #e64980;
+        color: #fff;
+        text-align: left;
+        padding: 12px;
+      }
+      td {
+        padding: 10px 12px;
+        border-bottom: 1px solid #ffe0eb;
+      }
+      tr:nth-child(even) td {
+        background: #fff5f8;
+      }
+      .table-wrap {
+        overflow-x: auto;
+      }
+
+      /* Contoh langsung */
+      .demo {
+        background: #fff8fb;
+        border: 1px solid #ffd6e7;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 15px 0;
+      }
+      .demo h1.demo-h1 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      /* Form */
+      form {
+        background: #fff8fb;
+        border: 1px solid #ffd6e7;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 15px 0;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        margin: 10px 0 5px;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ffd6e7;
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 1rem;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #e64980;
+      }
+      textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+      button {
+        margin-top: 15px;
+        background: #e64980;
+        color: #fff;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 6px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #c2255c;
+      }
+
+      .status {
+        color: #2f9e44;
+        font-weight: 600;
+      }
+
+      /* Practice Exercises: gradasi merah muda */
+      section.practice {
+        background: linear-gradient(135deg, #fff0f6 0%, #ffd6e7 100%);
+      }
+      /* Next Steps: gradasi hijau tosca ke pink */
+      section.next {
+        background: linear-gradient(135deg, #f3e8ff 0%, #ffdeeb 100%);
+      }
+
+      /* Congratulations: kartu ungu, teks putih */
+      footer {
+        background: linear-gradient(135deg, #f783ac 0%, #d6336c 100%);
+        color: #fff;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+      }
+      footer h2 {
+        color: #fff;
+        border: none;
+      }
+      footer p:last-child {
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 10px;
+        }
+        .container {
+          padding: 15px;
+        }
+        section,
+        footer {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🌐 HTML Learning Project</h1>
+        <p>Master the Building Blocks of the Web</p>
+      </header>
+
+      <!-- 1. Apa itu HTML -->
+      <section>
+        <h2>🚀 What is HTML?</h2>
+        <p>
+          <strong>HTML (HyperText Markup Language)</strong> is the standard
+          markup language for creating web pages. Think of it as the skeleton or
+          foundation of every website you visit.
+        </p>
+
+        <div class="highlight">
+          <h3>Key Points:</h3>
+          <ul>
+            <li><strong>HyperText:</strong> Text with links to other texts</li>
+            <li>
+              <strong>Markup:</strong> A way to annotate text to show structure
+              and meaning
+            </li>
+            <li>
+              <strong>Language:</strong> A set of rules and syntax for creating
+              web content
+            </li>
+          </ul>
+        </div>
+
+        <h3>🏗️ How HTML Works</h3>
+        <p>
+          HTML uses <strong>tags</strong> to define elements. Tags are keywords
+          surrounded by angle brackets like
+          <code class="inline">&lt;tagname&gt;</code>. Most tags come in pairs:
+        </p>
+        <div class="code-block">
+          <pre>
+&lt;tagname&gt;Content goes here&lt;/tagname&gt;
+&lt;h1&gt;This is a heading&lt;/h1&gt;
+&lt;p&gt;This is a paragraph&lt;/p&gt;</pre
+          >
+        </div>
+      </section>
+
+      <!-- 2. Struktur dasar -->
+      <section>
+        <h2>📋 Basic HTML Structure</h2>
+        <p>Every HTML document follows this basic structure:</p>
+        <div class="code-block">
+          <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+    &lt;p&gt;This is my first paragraph.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre
+          >
+        </div>
+
+        <div class="highlight">
+          <h3>Structure Breakdown:</h3>
+          <ul>
+            <li>
+              <strong><code class="inline">&lt;!DOCTYPE html&gt;</code></strong>
+              - Tells the browser this is HTML5
+            </li>
+            <li>
+              <strong><code class="inline">&lt;html&gt;</code></strong> - Root
+              element of the page
+            </li>
+            <li>
+              <strong><code class="inline">&lt;head&gt;</code></strong> -
+              Contains metadata (not visible on page)
+            </li>
+            <li>
+              <strong><code class="inline">&lt;body&gt;</code></strong> -
+              Contains visible content
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 3. Tag penting -->
+      <section>
+        <h2>🏷️ Essential HTML Tags</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tag</th>
+                <th>Purpose</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code class="inline">&lt;h1&gt;</code> -
+                  <code class="inline">&lt;h6&gt;</code>
+                </td>
+                <td>Headings (largest to smallest)</td>
+                <td>
+                  <code class="inline">&lt;h1&gt;Main Title&lt;/h1&gt;</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code class="inline">&lt;p&gt;</code></td>
+                <td>Paragraphs</td>
+                <td>
+                  <code class="inline">&lt;p&gt;This is text&lt;/p&gt;</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code class="inline">&lt;a&gt;</code></td>
+                <td>Links</td>
+                <td>
+                  <code class="inline"
+                    >&lt;a href="url"&gt;Link text&lt;/a&gt;</code
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><code class="inline">&lt;img&gt;</code></td>
+                <td>Images</td>
+                <td>
+                  <code class="inline"
+                    >&lt;img src="image.jpg" alt="Description"&gt;</code
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><code class="inline">&lt;div&gt;</code></td>
+                <td>Container/section</td>
+                <td>
+                  <code class="inline"
+                    >&lt;div&gt;Content here&lt;/div&gt;</code
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code class="inline">&lt;ul&gt;</code>,
+                  <code class="inline">&lt;ol&gt;</code>,
+                  <code class="inline">&lt;li&gt;</code>
+                </td>
+                <td>Lists</td>
+                <td>
+                  <code class="inline"
+                    >&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>🎯 Live Examples:</h3>
+        <div class="demo">
+          <h1 class="demo-h1">This is an H1 heading</h1>
+          <h2>This is an H2 heading</h2>
+          <h3>This is an H3 heading</h3>
+          <p>
+            This is a paragraph with <strong>bold text</strong> and
+            <em>italic text</em>.
+          </p>
+          <p>Here's a <a href="#">sample link</a>.</p>
+
+          <h4>Unordered List:</h4>
+          <ul>
+            <li>First item</li>
+            <li>Second item</li>
+            <li>Third item</li>
+          </ul>
+
+          <h4>Ordered List:</h4>
+          <ol>
+            <li>Step one</li>
+            <li>Step two</li>
+            <li>Step three</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 4. Form -->
+      <section>
+        <h2>📝 HTML Forms</h2>
+        <p>Forms allow users to input data.</p>
+        <div class="code-block">
+          <pre>
+&lt;form&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name"&gt;
+
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email"&gt;
+
+    &lt;label for="message"&gt;Message:&lt;/label&gt;
+    &lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;
+
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</pre
+          >
+        </div>
+
+        <h4>Example Form:</h4>
+        <form
+          onsubmit="
+            event.preventDefault();
+            alert('Form submitted!');
+          "
+        >
+          <label for="f-name">Name:</label>
+          <input
+            type="text"
+            id="f-name"
+            name="name"
+            placeholder="Enter your name"
+          />
+
+          <label for="f-email">Email:</label>
+          <input
+            type="email"
+            id="f-email"
+            name="email"
+            placeholder="Enter your email"
+          />
+
+          <label for="f-subject">Subject:</label>
+          <select id="f-subject" name="subject">
+            <option value="">Choose a topic</option>
+            <option value="question">Question</option>
+            <option value="feedback">Feedback</option>
+            <option value="support">Support</option>
+          </select>
+
+          <label for="f-message">Message:</label>
+          <textarea
+            id="f-message"
+            name="message"
+            placeholder="Enter your message here..."
+          ></textarea>
+
+          <button type="submit">Submit Form</button>
+        </form>
+      </section>
+
+      <!-- 5. Atribut -->
+      <section>
+        <h2>🎨 HTML Attributes</h2>
+        <p>Attributes provide additional information about HTML elements:</p>
+        <div class="code-block">
+          <pre>
+&lt;!-- Common attributes --&gt;
+&lt;img src="photo.jpg" alt="A beautiful sunset" width="300" height="200"&gt;
+&lt;a href="https://example.com" target="_blank" title="Visit Example"&gt;Click here&lt;/a&gt;
+&lt;div class="container" id="main-content" style="color: blue;"&gt;Content&lt;/div&gt;</pre
+          >
+        </div>
+
+        <div class="highlight">
+          <h3>Important Attributes:</h3>
+          <ul>
+            <li><strong>id</strong> - Unique identifier for an element</li>
+            <li><strong>class</strong> - Groups elements for styling</li>
+            <li><strong>src</strong> - Source file for images, videos, etc.</li>
+            <li><strong>href</strong> - URL for links</li>
+            <li><strong>alt</strong> - Alternative text for images</li>
+            <li><strong>style</strong> - Inline CSS styling</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 6. Tabel -->
+      <section>
+        <h2>📊 Tables in HTML</h2>
+        <p>Tables organize data in rows and columns:</p>
+        <div class="code-block">
+          <pre>
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Age&lt;/th&gt;
+            &lt;th&gt;City&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;John&lt;/td&gt;
+            &lt;td&gt;25&lt;/td&gt;
+            &lt;td&gt;New York&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</pre
+          >
+        </div>
+
+        <h4>Sample Table:</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Subject</th>
+                <th>Grade</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Alice Johnson</td>
+                <td>Mathematics</td>
+                <td>A+</td>
+                <td class="status">✅ Passed</td>
+              </tr>
+              <tr>
+                <td>Bob Smith</td>
+                <td>Physics</td>
+                <td>B</td>
+                <td class="status">✅ Passed</td>
+              </tr>
+              <tr>
+                <td>Carol Davis</td>
+                <td>Chemistry</td>
+                <td>A</td>
+                <td class="status">✅ Passed</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 7. Latihan -->
+      <section class="practice">
+        <h2>💻 Practice Exercises</h2>
+        <h3>Beginner Tasks:</h3>
+        <ol>
+          <li>Create a basic HTML page with a title, heading, and paragraph</li>
+          <li>Add an image with alt text</li>
+          <li>Create a list of your favorite movies</li>
+          <li>Build a simple table with your weekly schedule</li>
+        </ol>
+        <h3>Intermediate Tasks:</h3>
+        <ol>
+          <li>Create a contact form with different input types</li>
+          <li>Build a navigation menu with links</li>
+          <li>Design a simple blog post layout</li>
+          <li>Create a photo gallery grid</li>
+        </ol>
+      </section>
+
+      <!-- 8. Struktur proyek -->
+      <section>
+        <h2>🗂️ Project Structure</h2>
+        <p>Here's how to organize your HTML project:</p>
+        <div class="code-block plain">
+          <pre>
+my-website/
+│
+├── index.html        (Main page)
+├── about.html        (About page)
+├── contact.html      (Contact page)
+│
+├── css/
+│   └── styles.css    (CSS stylesheets)
+│
+├── js/
+│   └── script.js     (JavaScript files)
+│
+└── images/
+    ├── logo.png
+    ├── hero-image.jpg
+    └── gallery/
+        ├── photo1.jpg
+        └── photo2.jpg</pre
+          >
+        </div>
+      </section>
+
+      <!-- 9. Langkah berikutnya -->
+      <section class="next">
+        <h2>🎯 Next Steps in Your Learning Journey</h2>
+        <p>After mastering HTML, continue with:</p>
+        <ul>
+          <li>
+            <strong>CSS (Cascading Style Sheets)</strong> - Style your HTML
+            elements
+          </li>
+          <li>
+            <strong>JavaScript</strong> - Add interactivity and dynamic behavior
+          </li>
+          <li>
+            <strong>Responsive Design</strong> - Make websites work on all
+            devices
+          </li>
+          <li>
+            <strong>Web Accessibility</strong> - Make websites usable for
+            everyone
+          </li>
+          <li>
+            <strong>Modern Frameworks</strong> - React, Vue.js, or Angular
+          </li>
+        </ul>
+      </section>
+
+      <!-- 10. Tools -->
+      <section>
+        <h2>🔧 Development Tools</h2>
+        <div class="highlight">
+          <h3>Recommended Tools:</h3>
+          <ul>
+            <li><strong>Text Editors:</strong> VS Code, Sublime Text, Atom</li>
+            <li>
+              <strong>Browsers:</strong> Chrome DevTools, Firefox Developer
+              Tools
+            </li>
+            <li><strong>Version Control:</strong> Git and GitHub</li>
+            <li><strong>Online Editors:</strong> CodePen, JSFiddle, Repl.it</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer>
+        <h2>🎉 Congratulations!</h2>
+        <p>
+          You've completed the HTML Learning Project! You now understand the
+          fundamentals of HTML and can create your own web pages. Keep
+          practicing and building projects to strengthen your skills.
+        </p>
+        <p>
+          <strong>Remember:</strong> The best way to learn HTML is by doing.
+          Start building your own projects!
+        </p>
+      </footer>
+    </div>
+  </body>
 </html>
